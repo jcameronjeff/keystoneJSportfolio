@@ -196,6 +196,10 @@ module.exports = function () {
 		return ('/blog/post/' + postSlug);
 	};
 
+	// Direct url link to a specific project
+	_helpers.projectUrl = function (projectSlug, options) {
+		return ('/projects/' + projectSlug);
+	};
 	// might be a ghost helper
 	// used for pagination urls on blog
 	_helpers.pageUrl = function (pageNumber, options) {

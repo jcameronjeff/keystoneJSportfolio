@@ -2,14 +2,14 @@ var keystone = require('keystone');
 
 var Types = keystone.Field.Types;
 
-var Product = new keystone.List('Product', {
+var Project = new keystone.List('Project', {
   map: {name: 'title'},
-  singular: 'Product',
-  plural: 'Products',
+  singular: 'Project',
+  plural: 'Projects',
   autokey: {path: 'slug', from: 'title', unique: true}
 });
 
-Product.add({
+Project.add({
   title: {type: String, required: true},
   author: { type: Types.Relationship, ref: 'User' },
   publishedAt: Date,
@@ -20,4 +20,4 @@ Product.add({
    }
 });
 
-Product.register();
+Project.register();
