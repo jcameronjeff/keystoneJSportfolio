@@ -197,7 +197,7 @@ module.exports = function () {
 	};
 
 	// Direct url link to a specific project
-	_helpers.projectUrl = function (projectSlug, options) {
+	_helpers.projectUrl = function (pro, options) {
 		return ('/projects/' + projectSlug);
 	};
 	// might be a ghost helper

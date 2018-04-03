@@ -6,7 +6,39 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Jeff Cameron</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link href="/styles/site.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+		<link href="/styles/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Material Design Bootstrap -->
+     <link href="/styles/css/mdb.min.css" rel="stylesheet">
+
+		 <style>
+		.top-nav-collapse {
+				background-color: #3f51b5!important;
+		}
+		.navbar:not(.top-nav-collapse) {
+				background: transparent!important;
+		}
+		@media (max-width: 768px) {
+				.navbar:not(.top-nav-collapse) {
+						background: #3f51b5!important;
+				}
+		}
+		h5 {
+				letter-spacing: 3px;
+		}
+		@media (max-width: 740px) {
+				.full-height,
+				.full-height body,
+				.full-height header,
+				.full-height header .view {
+						height: 700px;
+				}
+		}
+</style>
+     <!-- Your custom styles (optional) -->
+
+		{{!-- <link href="/styles/site.css" rel="stylesheet"> --}}
 
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 			- only renders when user is logged in and admin--}}
@@ -21,37 +53,39 @@
 
 	</head>
 	<body>
-		<div id="header">
-			<div class="container">
-				<div role="navigation" class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-							</button>
-							<a href="/" class="navbar-brand">Jeff Cameron</a>
-						</div>
-						<div class="collapse navbar-collapse">
-							<ul class="nav navbar-nav navbar-left">
-									{{# each navLinks}}
-									<li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
-										<a href="{{ href }}">{{ label }}</a>
-									</li>
-								{{/each}}
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								{{#if user}}
-								<li><a href="/keystone/signout">Sign Out</a></li>
-								{{else}}
-								<li><a href="/keystone/signin">Sign In</a></li>
-								{{/if}}
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<header>
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container smooth-scroll">
+                <a class="navbar-brand" href="/"><strong>Jeff Cameron</strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+
+											<ul class="nav navbar-nav navbar-left mr-auto">
+													{{# each navLinks}}
+													<li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
+														<a href="{{ href }}">{{ label }}</a>
+													</li>
+												{{/each}}
+											</ul>
+											<ul class="nav navbar-nav navbar-right">
+												{{#if user}}
+												<li><a href="/keystone/signout">Sign Out</a></li>
+												{{else}}
+												<li><a href="/keystone/signin">Sign In</a></li>
+												{{/if}}
+											</ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- Intro Section -->
+
+
+    </header>
+
 		<div id="body">
 			<!--
 				Flash messages allow you to display once-off status messages to users, e.g. form
@@ -89,17 +123,22 @@
 				<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
 			</div>
 		</div>
-		{{!--
-			//- jQuery 1.11.3 is included by default, and required by both Bootstrap
-			//- and the KeystoneJS Content Editor. If you are not targeting IE8,
-			//- you can upgrade to 2.1.4 (also bundled) for better performance.
-		--}}
-		<script src="/js/jquery/jquery-1.11.3.min.js"></script>
-		{{!--
-			//- Customise which Bootstrap javascript files are served by including
-			//- them specifically here, instead of bootstrap-3.3.5.min.js
-		--}}
-		<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+		<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+     <!-- Bootstrap tooltips -->
+     <script src="/js/popper.min.js"></script>
+     <!-- Bootstrap core JavaScript -->
+     <script src="/js/bootstrap.min.js"></script>
+     <!-- MDB core JavaScript -->
+     <script src="/js/mdb.min.js"></script>
+		 <script>
+		 new WOW().init();
+    // MDB Lightbox Init
+        $(function () {
+            $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+        });</script>
 		{{{isAdminEditorJS user}}}
 	</body>
 </html>
